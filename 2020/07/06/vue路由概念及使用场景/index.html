@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://cheesecakeeee.github.io">
   <title>4.vue路由概念及使用场景 | 欢迎光临</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="路由跳转方式有两种   路由跳转方式 实现方式    声明式导航链接 使用 router-link标签 的to属性指定路由跳转地址   编程式导航 通过$router访问路由实例,调用路由实例的push、replace、go、back等方法   路由跳转传值 可以传递字符串，也可以传递对象，还可以传递函数（返回对象） 路由基础   路由表组织形式 实现方式 应用场景    普通路由 路由表rout">
+  <meta name="description" content="路由跳转方式有两种   路由跳转方式 实现方式    声明式导航链接 使用 router-link标签 的to属性指定路由跳转地址   编程式导航 通过js编程控制路由跳转 。组件内通过$router访问路由实例,调用路由实例的push、replace、go、back等方法   路由跳转传值 可以传递字符串，也可以传递对象，还可以传递函数（返回对象）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="4.vue路由概念及使用场景">
-<meta property="og:url" content="https://cheesecakeeee.github.io/2020/07/03/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/index.html">
+<meta property="og:url" content="https://cheesecakeeee.github.io/2020/07/06/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/index.html">
 <meta property="og:site_name" content="欢迎光临">
-<meta property="og:description" content="路由跳转方式有两种   路由跳转方式 实现方式    声明式导航链接 使用 router-link标签 的to属性指定路由跳转地址   编程式导航 通过$router访问路由实例,调用路由实例的push、replace、go、back等方法   路由跳转传值 可以传递字符串，也可以传递对象，还可以传递函数（返回对象） 路由基础   路由表组织形式 实现方式 应用场景    普通路由 路由表rout">
+<meta property="og:description" content="路由跳转方式有两种   路由跳转方式 实现方式    声明式导航链接 使用 router-link标签 的to属性指定路由跳转地址   编程式导航 通过js编程控制路由跳转 。组件内通过$router访问路由实例,调用路由实例的push、replace、go、back等方法   路由跳转传值 可以传递字符串，也可以传递对象，还可以传递函数（返回对象）">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-03T07:03:04.000Z">
-<meta property="article:modified_time" content="2020-07-03T10:55:40.588Z">
+<meta property="article:published_time" content="2020-07-06T02:03:04.000Z">
+<meta property="article:modified_time" content="2020-07-06T10:46:31.687Z">
 <meta property="article:author" content="PRESENT">
 <meta property="article:tag" content="vue实战">
 <meta name="twitter:card" content="summary">
@@ -171,8 +171,8 @@
   
 
         
-        <a href="/2020/07/03/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
-  	<time datetime="2020-07-03T07:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
+        <a href="/2020/07/06/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
+  	<time datetime="2020-07-06T02:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
 </a>
         
       </header>
@@ -192,10 +192,12 @@
 </tr>
 <tr>
 <td>编程式导航</td>
-<td>通过$router访问路由实例,调用路由实例的push、replace、go、back等方法</td>
+<td>通过js编程控制路由跳转 。组件内通过$router访问路由实例,调用路由实例的push、replace、go、back等方法</td>
 </tr>
 </tbody></table>
 <p>路由跳转传值 可以传递字符串，也可以传递对象，还可以传递函数（返回对象）</p>
+<a id="more"></a>
+
 <h1 id="路由基础"><a href="#路由基础" class="headerlink" title="路由基础"></a>路由基础</h1><table>
 <thead>
 <tr>
@@ -212,20 +214,60 @@
 <tr>
 <td>动态路由</td>
 <td>路由表path中带<code>:属性</code></td>
-<td>一个路径渲染同一个组件，根据传递的不同属性值渲染不同的组件内容，例如：点击不同标题渲染不同的文章内容</td>
+<td>一个路径渲染同一个组件，根据传递的不同属性值渲染不同的组件内容（多对一），例如：点击不同标题渲染不同的文章内容</td>
+</tr>
+<tr>
+<td>嵌套路由</td>
+<td>路由表新增children子路由数组配置</td>
+<td>父组件中包含<code>router-view标签</code>，根据不同的子路由路径渲染出不同的组件，相当于多对多，有别于动态组件都渲染同一组件 ，有别于嵌套组件带数据交互</td>
 </tr>
 <tr>
 <td>命名路由</td>
 <td>路由表新增name属性</td>
-<td>路由跳转时通过传递带有name属性的对象进行跳转</td>
+<td>主要是为了路由跳转时通过传递带有name属性的对象进行跳转</td>
 </tr>
 <tr>
 <td>命名视图</td>
 <td>路由表配置components对象指向多个组件</td>
-<td>结合命名路由，一个路径渲染组件 内多个<code>router-view标签</code> 同时 (同级) 展示多个视图。例如：渲染后台管理的页面结构一般由顶部+菜单栏+内容部分构成</td>
+<td>一个路径渲染组件 内多个<code>router-view标签</code>，指明name属性, 同时 (同级) 展示多个视图。例如：渲染后台管理的页面结构一般由顶部+菜单栏+内容部分构成</td>
+</tr>
+<tr>
+<td>重定向</td>
+<td>路由表配置redirect路径或命名路由对象或函数返回的命名对象</td>
+<td>替换path路由地址</td>
+</tr>
+<tr>
+<td>别名</td>
+<td>路由表配置alias路径</td>
+<td>路由保持不变，但实际映射为别名地址</td>
 </tr>
 </tbody></table>
-
+<h1 id="路由进阶"><a href="#路由进阶" class="headerlink" title="路由进阶"></a>路由进阶</h1><h2 id="路由组件传参"><a href="#路由组件传参" class="headerlink" title="路由组件传参"></a>路由组件传参</h2><p>路由渲染对应组件，导致了如果通过动态路由渲染不同的内容，参数只能挂载在$route上，限制了组件的可复用性。即：某组件只能被某种路由渲染<br>为了增加组件复用性和路由的灵活性，进阶<code>路由组件传参</code>。<br>组件内通过props接受传递的参数。无论是路由传参还是其他父组件传参都可以被该组件接收增加了复用性。使路由也可以带数据交互。    </p>
+<table>
+<thead>
+<tr>
+<th>路由组件传参形式</th>
+<th>结构</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>布尔模式</td>
+<td>路由表新增props设置为true，route.params 将会被设置为组件属性</td>
+<td>:参数 params 可以在组件内props接收直接使用（类似动态路由将动态属性传递给组件）</td>
+</tr>
+<tr>
+<td>对象模式</td>
+<td>路由表props设置为对象{参数名: 布尔值}</td>
+<td>传递某个固定的参数名和参数值 (类似命名视图展示根据传递的值展示部分内容)</td>
+</tr>
+<tr>
+<td>函数模式</td>
+<td>路由表props设置函数返回对象</td>
+<td>返回的对象参数名对应参数值可以设置为route的动态参数params/query等</td>
+</tr>
+</tbody></table>
+<h2 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h2>
       
 
       
@@ -315,7 +357,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://cheesecakeeee.github.io/2020/07/03/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://cheesecakeeee.github.io/2020/07/06/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,7 +400,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路由跳转方式有两种"><span class="toc-number">1.</span> <span class="toc-text">路由跳转方式有两种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#路由基础"><span class="toc-number">2.</span> <span class="toc-text">路由基础</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路由跳转方式有两种"><span class="toc-number">1.</span> <span class="toc-text">路由跳转方式有两种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#路由基础"><span class="toc-number">2.</span> <span class="toc-text">路由基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#路由进阶"><span class="toc-number">3.</span> <span class="toc-text">路由进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#路由组件传参"><span class="toc-number">3.1.</span> <span class="toc-text">路由组件传参</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航守卫"><span class="toc-number">3.2.</span> <span class="toc-text">导航守卫</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
