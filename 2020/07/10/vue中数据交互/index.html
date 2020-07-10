@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://cheesecakeeee.github.io">
-  <title>Archives: 2020/7 | 欢迎光临</title>
+  <title>5.vue中数据交互 | 欢迎光临</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="欢迎光临">
-<meta property="og:url" content="https://cheesecakeeee.github.io/archives/2020/07/index.html">
+  <meta name="description" content="父子组件传值结论 父组件通过:属性传递值给子组件子组件通过props接受父组件传值子组件不能直接修改父组件的传值(单向数据流)子组件通过$emit一个自定义事件，父组件捕获自定义事件修改传值进而达到修改子组件值得目的   具体demo新建一个views&#x2F;store.vue父组件页面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.vue中数据交互">
+<meta property="og:url" content="https://cheesecakeeee.github.io/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/index.html">
 <meta property="og:site_name" content="欢迎光临">
+<meta property="og:description" content="父子组件传值结论 父组件通过:属性传递值给子组件子组件通过props接受父组件传值子组件不能直接修改父组件的传值(单向数据流)子组件通过$emit一个自定义事件，父组件捕获自定义事件修改传值进而达到修改子组件值得目的   具体demo新建一个views&#x2F;store.vue父组件页面。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T03:28:18.000Z">
+<meta property="article:modified_time" content="2020-07-10T03:27:51.241Z">
 <meta property="article:author" content="PRESENT">
+<meta property="article:tag" content="vue实战">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="欢迎光临" type="application/atom+xml">
@@ -154,36 +159,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-vue中数据交互" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      5.vue中数据交互
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" class="archive-article-date">
+
+        
+        <a href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" class="archive-article-date">
   	<time datetime="2020-07-10T03:28:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/">5.vue中数据交互</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="父子组件传值"><a href="#父子组件传值" class="headerlink" title="父子组件传值"></a>父子组件传值</h1><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>父组件通过<code>:属性</code>传递值给子组件<br>子组件通过<code>props</code>接受父组件传值<br>子组件不能直接修改父组件的传值(单向数据流)<br>子组件通过$emit一个自定义事件，父组件捕获自定义事件修改传值进而达到修改子组件值得目的 </p>
+</blockquote>
+<h2 id="具体demo"><a href="#具体demo" class="headerlink" title="具体demo"></a>具体demo</h2><p>新建一个views/store.vue父组件页面。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router/routes.js 新增路由</span></span><br><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/store'</span>,</span><br><span class="line">  component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/Store.vue'</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>新建一个子组件components/AInput.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;text&quot; :value&#x3D;&#39;inputValue&#39; @input&#x3D;&quot;handleInput&quot;&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  &#x2F;&#x2F; 接受父组件的传值</span><br><span class="line">  props: &#123;</span><br><span class="line">    inputValue: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      default: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    &#x2F;&#x2F; 触发自定义函数</span><br><span class="line">    handleInput (event) &#123;</span><br><span class="line">      this.$emit(&#39;input&#39;, event.target.value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>父组件中引用子组件，通过v-model或:inputValue传值，父组件监听input事件赋值给inputValue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#x2F;* 接受子组件@input自定义事件 *&#x2F;</span><br><span class="line">    &lt;a-input @input&#x3D;&quot;handleInput&quot; :inputValue&#x3D;&quot;value&quot;&gt;&lt;&#x2F;a-input&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">&#x2F;&#x2F; 引入子组件</span><br><span class="line">import AInput from &#39;_c&#x2F;AInput.vue&#39;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;Store&#39;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      value: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x2F;&#x2F; 子组件在components中声明再引用</span><br><span class="line">  components: &#123;</span><br><span class="line">    AInput</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    &#x2F;&#x2F; 定义自定义事件修改传值</span><br><span class="line">    handleInput (val) &#123;</span><br><span class="line">      this.value &#x3D; val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="同页面（同视图）内的兄弟组件传值"><a href="#同页面（同视图）内的兄弟组件传值" class="headerlink" title="同页面（同视图）内的兄弟组件传值"></a>同页面（同视图）内的兄弟组件传值</h1><h2 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>兄弟组件在同一个页面（当前页面为兄弟组件公共父组件）内引用<br>公共父组件向同时向兄弟组件传值<br>其中一个兄弟组件内触发自定义事件，父组件捕获自定义事件修改了传值，从而影响到另一个兄弟组件的值</p>
+</blockquote>
+<h2 id="具体demo-1"><a href="#具体demo-1" class="headerlink" title="具体demo"></a>具体demo</h2><p>新增一个子组件components/AShow.vue    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;AShow: &#123;&#123; content &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  &#x2F;&#x2F; 接受父组件传过来的content属性</span><br><span class="line">  props: &#123;</span><br><span class="line">    content: &#123;</span><br><span class="line">      type: [String, Number],</span><br><span class="line">      default: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>父组件中引入组件AShow。传入content属性值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;a-input @input&#x3D;&quot;handleInput&quot; :inputValue&#x3D;&quot;value&quot;&gt;&lt;&#x2F;a-input&gt;</span><br><span class="line">    &#x2F;* 子组件传值 *&#x2F;</span><br><span class="line">    &lt;a-show :content&#x3D;&quot;value&quot;&gt;&lt;&#x2F;a-show&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import AInput from &#39;_c&#x2F;AInput.vue&#39;</span><br><span class="line">&#x2F;&#x2F; 引入子组件</span><br><span class="line">import AShow from &#39;_c&#x2F;AShow.vue&#39;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;Store&#39;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      value: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    AInput,</span><br><span class="line">    &#x2F;&#x2F; 声明子组件</span><br><span class="line">    AShow</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleInput (val) &#123;</span><br><span class="line">      this.value &#x3D; val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Bus-不同页面（不同视图）的兄弟组件传值"><a href="#Bus-不同页面（不同视图）的兄弟组件传值" class="headerlink" title="Bus 不同页面（不同视图）的兄弟组件传值"></a>Bus 不同页面（不同视图）的兄弟组件传值</h1><h2 id="结论-2"><a href="#结论-2" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>创建一个空的vue实例Bus，挂载到Vue的prototype上,Vue实例任意位置可以访问到该Bus<br>兄弟组件通过Bus实例上触发自定义事件，并传递值。<br>另一个兄弟组件通过Bus实例监听自定义事件，返回传值为参数的回调函数，接受传参</p>
+</blockquote>
+<h2 id="具体demo-2"><a href="#具体demo-2" class="headerlink" title="具体demo"></a>具体demo</h2><p>新建lib/bus.js创建空的vue实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Bus = <span class="keyword">new</span> Vue()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Bus</span><br></pre></td></tr></table></figure>
+<p>将Bus挂载到入口文件的Vue上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main.js</span></span><br><span class="line"><span class="keyword">import</span> Bus <span class="keyword">from</span> <span class="string">'./lib/bus'</span></span><br><span class="line"><span class="comment">// 所有vue实例都可以访问到$bus</span></span><br><span class="line">Vue.prototype.$bus = Bus</span><br></pre></td></tr></table></figure>
+<p>单页面组件views/Tel.vue中点击事件挂载自定义事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;tel&quot;&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;deliverValue&quot;&gt;点击我传递值给兄弟组件&lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    deliverValue () &#123;</span><br><span class="line">      this.$bus.$emit(&#39;handleDeliver&#39;, &#39;兄弟组件传过来的值&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>另一个单页面组件views/Email.vue中mounted挂载阶段捕获自定义事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;email&quot;&gt;</span><br><span class="line">    &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    this.$bus.$on(&#39;handleDeliver&#39;, msg &#x3D;&gt; &#123;</span><br><span class="line">      this.message &#x3D; msg</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,171 +248,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://cheesecakeeee.github.io/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/08/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
-  	<time datetime="2020-07-08T09:53:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/08/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4.vue路由概念及使用场景</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/08/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">4.vue路由概念及使用场景</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#父子组件传值"><span class="toc-number">1.</span> <span class="toc-text">父子组件传值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">1.1.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体demo"><span class="toc-number">1.2.</span> <span class="toc-text">具体demo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#同页面（同视图）内的兄弟组件传值"><span class="toc-number">2.</span> <span class="toc-text">同页面（同视图）内的兄弟组件传值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结论-1"><span class="toc-number">2.1.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体demo-1"><span class="toc-number">2.2.</span> <span class="toc-text">具体demo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bus-不同页面（不同视图）的兄弟组件传值"><span class="toc-number">3.</span> <span class="toc-text">Bus 不同页面（不同视图）的兄弟组件传值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结论-2"><span class="toc-number">3.1.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体demo-2"><span class="toc-number">3.2.</span> <span class="toc-text">具体demo</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/03/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/" class="archive-article-date">
-  	<time datetime="2020-07-03T03:17:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/03/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/">3.vue项目中的文件是如何工作的</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/02/vue%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2020-07-02T08:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/02/vue%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%B4%E6%98%8E/">2.vue项目目录初始化说明</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/01/%E9%80%9A%E8%BF%87vue-ui%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2020-07-01T06:47:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/01/%E9%80%9A%E8%BF%87vue-ui%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/">1.通过vue-ui创建项目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -382,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
