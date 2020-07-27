@@ -156,6 +156,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vuex数据管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">6.Vuex数据管理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-07-27T04:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vuex 是数据管理插件。vue通过store/index.js中引用vuex，创建一个store实例，vue实例this.$store共享该store<br>vuex 在不启用模块命名空间时，getters、mutation、action会被整合到全局作用域下，调用时可以不需要指定模块名称。调用state需要指定模块名。  </p>
+<h1 id="state"><a href="#state" class="headerlink" title="state"></a>state</h1><p>state相当于组件内的data,vue实例的全局共享数据,根组件的全局data。<br>组件中的data不传递给其他组件就只能在当前组件内使用。而vuex中的state可以被所有组件任意访问。    </p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>创建state.js定义state引入store/index中<br>页面computed定义双花阔号渲染值的同名函数，返回this.$store.state定义的全局state<br>或页面computed中借助辅助函数 <code>...mapState()</code> 传入字符串数组或者对象（对象值可以是普通函数/箭头函数/字符串）       </p>
+        
+          <a class="article-more-a" href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue中数据交互" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -559,19 +637,19 @@
 
 
   
-    <article id="post-hello-present" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-motto" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/05/hello-present/">MOTTO</a>
+      <a class="article-title" href="/2020/06/05/motto/">MOTTO</a>
     </h1>
   
 
         
-        <a href="/2020/06/05/hello-present/" class="archive-article-date">
+        <a href="/2020/06/05/motto/" class="archive-article-date">
   	<time datetime="2020-06-05T10:54:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
 </a>
         
@@ -581,8 +659,8 @@
       
         <p>“We need, in love, to practice only this: letting each other go. For holding on comes easily; we do not need to learn it.”</p>
 <p align="right">——Rainer Maria Rilke</p> 
-
-
+"A happy life isn't hard to come by. The trick is to not regret the choices you made along the way."
+<p align="right">——Why Women Kill</p> 
       
 
       
@@ -594,7 +672,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/05/hello-present/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/06/05/motto/">展开全文 >></a>
         </p>
       
 
