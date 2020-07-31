@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://cheesecakeeee.github.io">
-  <title>Archives | 欢迎光临</title>
+  <title>8.mock模拟数据 | 欢迎光临</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="欢迎光临">
-<meta property="og:url" content="https://cheesecakeeee.github.io/archives/index.html">
+  <meta name="description" content="是什么Mock.js 是一款模拟数据生成器, 拦截请求，构建前端想要的数据进行返回。可以在不需要后台服务的情况下模拟接口的返回数据。 安装1yarn add mockjs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.mock模拟数据">
+<meta property="og:url" content="https://cheesecakeeee.github.io/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="欢迎光临">
+<meta property="og:description" content="是什么Mock.js 是一款模拟数据生成器, 拦截请求，构建前端想要的数据进行返回。可以在不需要后台服务的情况下模拟接口的返回数据。 安装1yarn add mockjs">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-30T02:24:22.000Z">
+<meta property="article:modified_time" content="2020-07-31T10:45:07.899Z">
 <meta property="article:author" content="PRESENT">
+<meta property="article:tag" content="vue实战">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="欢迎光临" type="application/atom+xml">
@@ -154,36 +159,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-mock模拟数据" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      8.mock模拟数据
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+
+        
+        <a href="/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" class="archive-article-date">
   	<time datetime="2020-07-30T02:24:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/">8.mock模拟数据</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>Mock.js 是一款模拟数据生成器, 拦截请求，构建前端想要的数据进行返回。可以在不需要后台服务的情况下模拟接口的返回数据。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add mockjs</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h1><h2 id="Mock-mock-方法"><a href="#Mock-mock-方法" class="headerlink" title="Mock.mock()方法"></a>Mock.mock()方法</h2><p>根据数据模板生成模拟数据。</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><table>
+<thead>
+<tr>
+<th>参数位置</th>
+<th>参数值</th>
+<th>形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一个</td>
+<td>拦截的路径</td>
+<td>字符串或正则</td>
+</tr>
+<tr>
+<td>第二个</td>
+<td>可选的ajax方法</td>
+<td>get/post ……</td>
+</tr>
+<tr>
+<td>第三个</td>
+<td>方法或者模板</td>
+<td>对象/模板规则</td>
+</tr>
+</tbody></table>
+<h3 id="模板规则Demo"><a href="#模板规则Demo" class="headerlink" title="模板规则Demo"></a>模板规则Demo</h3><p><a href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification" target="_blank" rel="noopener">语法规范</a>       </p>
+<h4 id="数据模板demo"><a href="#数据模板demo" class="headerlink" title="数据模板demo"></a>数据模板demo</h4><p>‘strMinMax|2-4’: ‘la’ —— <code>属性名：</code>strMinMax；<code>属性值：</code>返回字符串la重复&gt;=2次&lt;3次的新字符串<br>‘strCount|2’: ‘eudora’ ——  <code>属性名：</code>strCount；<code>属性值：</code>返回字符串eudora重复2次新字符串<br>‘numAdd|+1’: 6 ——  <code>属性名：</code>numAdd；<code>属性值：</code>初始值为6，每次请求递增<br>‘numMinMax|8-18’: 9 ——  <code>属性名：</code>numMinMax；<code>属性值：</code>默认9，随机生成8 ~ 19中任意一个数字<br>‘numFloat|1-100.1-2’: 99.9 —— <code>属性名：</code>numFloat；<code>属性值：</code> 浮点数整数位1-100随机，随机保留1或2小数位<br>‘bol1|1’: true —— <code>属性名：</code>bol1；<code>属性值：</code>随机布尔值<br>‘bolVal|3-4’: true —— <code>属性名：</code>bolVal；<code>属性值：</code> 3/7的概率默认布尔值<br>‘objCount|2’: {a: 1, b: 2, c: 3} —— <code>属性名：</code>objCount；<code>属性值：</code>随机选两个属性组成新对象<br>‘objMinMax|2-4’: {a: 11, b: 22, c:33, d: 44} —— <code>属性名：</code>objMinMax；<code>属性值：</code> 随机选择2个或3个属性组件新对象<br>‘arr1|1’: [4,2,5,0] —— <code>属性名：</code>arr1；<code>属性值：</code> 数组中任意选一个值<br>‘arrAdd|+2’: [9,2,3,4,5,6] —— <code>属性名：</code>arrAdd；<code>属性值：</code>返回9开始算的索引递增值<br>‘arrMinMax|2-3’: [7,9] —— <code>属性名：</code>arrMinMax；<code>属性值：</code>重复默认数组2次到3次组成新数组<br>‘arrCount|3’: [1,2,3] —— <code>属性名：</code>arrCount；<code>属性值：</code>重复数组3次组成新数组<br>‘fun’: () =&gt; {return ‘属性值为函数形式’}  —— <code>属性名：</code>fun；<code>属性值：</code> 返回字符串<br>‘regexp1’: /[a-z][A-Z][0-9]{2}/  —— <code>属性名：</code>regexp1；<code>属性值：</code>返回符合正则的随机值</p>
+<h2 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h2><p>Mock.mock(传入@占位符) 随机生成 对应的类型数值<br>占位符名字和random的方法名相同，可以去查看Mock.Random提供的方法</p>
+<h2 id="Mock-Random-工具"><a href="#Mock-Random-工具" class="headerlink" title="Mock.Random 工具"></a>Mock.Random 工具</h2><p>提供了生成各种随机数据的方法</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol start="0">
+<li>配置好前端的devServer代理proxy</li>
+<li>创建mock文件夹，mock的入口文件index.js，引入mockjs，配置mock（拦截接口路径，返回数据格式）并暴露出去。         </li>
+<li>在项目入口文件main.js，根据环境，测试环境引入mock        </li>
+</ol>
+<h1 id="mock模拟ajax接口请求数据Demo"><a href="#mock模拟ajax接口请求数据Demo" class="headerlink" title="mock模拟ajax接口请求数据Demo"></a>mock模拟ajax接口请求数据Demo</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js配置代理</span></span><br><span class="line">devServer: &#123;</span><br><span class="line">    <span class="comment">// /api开头的请求都会被代理到 http://localhost:3000/api</span></span><br><span class="line">    <span class="comment">// 例如 /api/users 现在会被代理到请求 http://localhost:3000/api/users</span></span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">"/api"</span>: &#123;</span><br><span class="line">        target: <span class="string">"http://localhost:3000"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// api/modules/user.js  定义获取用户信息接口</span></span><br><span class="line"><span class="keyword">import</span> service <span class="keyword">from</span> <span class="string">'@/api/service'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  getUserInfo(params) &#123;</span><br><span class="line">    <span class="keyword">return</span> service.post(<span class="string">'/api/getUserInfo'</span>, params)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// home组件内调用接口</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"home"</span>&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"handleGetUserInfo"</span>&gt;请求数据&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  name: 'Home',</span></span><br><span class="line"><span class="regexp">  methods: &#123;</span></span><br><span class="line"><span class="regexp">    async handleGetUserInfo() &#123;</span></span><br><span class="line"><span class="regexp">      try &#123;</span></span><br><span class="line"><span class="regexp">        const res =  await this.$Api.getUserInfo(&#123;userId: 123&#125;)</span></span><br><span class="line"><span class="regexp">        console.log(res)</span></span><br><span class="line"><span class="regexp">      &#125; catch (err)&#123;</span></span><br><span class="line"><span class="regexp">        console.log(err)</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mock/response/user.js</span></span><br><span class="line"><span class="comment">// export const getUserInfo = (option) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(option)</span></span><br><span class="line"><span class="comment">//   return &#123;</span></span><br><span class="line"><span class="comment">//     name: 'lalala'</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getUserInfo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> template = &#123;</span><br><span class="line">    <span class="string">'strMinMax|2-4'</span>: <span class="string">'la'</span>,</span><br><span class="line">    <span class="string">'strCount|2'</span>: <span class="string">'eudora'</span>,</span><br><span class="line">    <span class="string">'numAdd|+1'</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">'numMinMax|8-18'</span>: <span class="number">9</span>,</span><br><span class="line">    <span class="string">'numFloat|1-100.1-2'</span>: <span class="number">99.9</span>,</span><br><span class="line">    <span class="string">'bol1|1'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'bolVal|3-4'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'objCount|2'</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;,</span><br><span class="line">    <span class="string">'objMinMax|2-4'</span>: &#123;<span class="attr">a</span>: <span class="number">11</span>, <span class="attr">b</span>: <span class="number">22</span>, <span class="attr">c</span>:<span class="number">33</span>, <span class="attr">d</span>: <span class="number">44</span>&#125;,</span><br><span class="line">    <span class="string">'arr1|1'</span>: [<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="string">'arrAdd|+2'</span>: [<span class="number">9</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">    <span class="string">'arrMinMax|2-3'</span>: [<span class="number">7</span>,<span class="number">9</span>],</span><br><span class="line">    <span class="string">'arrCount|3'</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    <span class="string">'fun'</span>: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'属性值为函数形式'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'regexp1'</span>: <span class="regexp">/[a-z][A-Z][0-9]&#123;2&#125;/</span>,</span><br><span class="line">    <span class="string">'日期'</span>: Random.date(<span class="string">'yyyy-MM-dd'</span>),</span><br><span class="line">    <span class="string">'邮箱'</span>: Mock.mock(<span class="string">'@email'</span>),</span><br><span class="line">    <span class="string">'姓名'</span>: Mock.mock(<span class="string">'@cfirst@clast'</span>),</span><br><span class="line">    <span class="string">'地区'</span>: Mock.mock(<span class="string">'@province@city@county'</span>)</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 生成length为3的数组</span></span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">3</span></span><br><span class="line">  <span class="keyword">let</span> arr = []</span><br><span class="line">  <span class="keyword">while</span>(i--) &#123;</span><br><span class="line">    <span class="comment">// console.log(i)</span></span><br><span class="line">    arr.push(template)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>  Mock.mock(arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span></span><br><span class="line"><span class="comment">// 引入拦截请求后的接口返回数据的函数，可以直接写入一个function，为了方便管理可以根据模块创建方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; getUserInfo &#125; <span class="keyword">from</span> <span class="string">'./response/user'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// mock配置</span></span><br><span class="line">Mock.mock(<span class="regexp">/\/api\/getUserInfo/</span>, getUserInfo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js 非生产环境内引入mock</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) <span class="built_in">require</span>(<span class="string">'./mock'</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,339 +267,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://cheesecakeeee.github.io/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/28/axios%E5%B0%81%E8%A3%85ajax%E8%AF%B7%E6%B1%82/" class="archive-article-date">
-  	<time datetime="2020-07-28T03:31:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/28/axios%E5%B0%81%E8%A3%85ajax%E8%AF%B7%E6%B1%82/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">7.axios封装ajax请求</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/axios%E5%B0%81%E8%A3%85ajax%E8%AF%B7%E6%B1%82/">7.axios封装ajax请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础配置"><span class="toc-number">3.</span> <span class="toc-text">基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mock-mock-方法"><span class="toc-number">3.1.</span> <span class="toc-text">Mock.mock()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">3.1.1.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板规则Demo"><span class="toc-number">3.1.2.</span> <span class="toc-text">模板规则Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据模板demo"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">数据模板demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#占位符"><span class="toc-number">3.2.</span> <span class="toc-text">占位符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mock-Random-工具"><span class="toc-number">3.3.</span> <span class="toc-text">Mock.Random 工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mock模拟ajax接口请求数据Demo"><span class="toc-number">5.</span> <span class="toc-text">mock模拟ajax接口请求数据Demo</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-07-27T04:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">6.Vuex数据管理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" class="archive-article-date">
-  	<time datetime="2020-07-10T03:28:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/">5.vue中数据交互</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/08/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
-  	<time datetime="2020-07-08T09:53:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/08/vue%E8%B7%AF%E7%94%B1%E6%A6%82%E5%BF%B5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">4.vue路由概念及使用场景</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/03/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/" class="archive-article-date">
-  	<time datetime="2020-07-03T03:17:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/03/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/">3.vue项目中的文件是如何工作的</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/02/vue%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2020-07-02T08:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/02/vue%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%B4%E6%98%8E/">2.vue项目目录初始化说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/01/%E9%80%9A%E8%BF%87vue-ui%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2020-07-01T06:47:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/01/%E9%80%9A%E8%BF%87vue-ui%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/">1.通过vue-ui创建项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/motto/" class="archive-article-date">
-  	<time datetime="2020-06-05T10:54:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/motto/">MOTTO</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/hello-world/" class="archive-article-date">
-  	<time datetime="2020-06-05T08:59:39.011Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -550,8 +402,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
