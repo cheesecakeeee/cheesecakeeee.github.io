@@ -17,8 +17,12 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/11/React%E5%9F%BA%E7%A1%80/1.png">
 <meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/11/React%E5%9F%BA%E7%A1%80/2.png">
+<meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/11/React%E5%9F%BA%E7%A1%80/7.png">
+<meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/11/React%E5%9F%BA%E7%A1%80/3.png">
+<meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/11/React%E5%9F%BA%E7%A1%80/4.png">
+<meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/11/React%E5%9F%BA%E7%A1%80/5.jpg">
 <meta property="article:published_time" content="2020-08-11T09:58:12.000Z">
-<meta property="article:modified_time" content="2020-08-20T08:40:36.724Z">
+<meta property="article:modified_time" content="2020-08-26T04:10:53.144Z">
 <meta property="article:author" content="PRESENT">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -213,6 +217,60 @@
 <li>视图层的框架（复杂的数据传递需要借助redux或mobx等工具）</li>
 <li>函数式编程（易于维护和实现前端的自动化测试）     </li>
 </ol>
+<h1 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h1><p><code>虚拟DOM本质为JS对象，它使得react减少了真实DOM的创建和对比，因此性能更优~</code></p>
+<p>优点： </p>
+<ol>
+<li>提升性能</li>
+<li>使跨端应用得以实现（react native），react可以用来开发网页应用和原生应用（可以识别虚拟dom）。</li>
+</ol>
+<hr>
+<p>如果没有虚拟dom，如何实现react底层逻辑？</p>
+<ol>
+<li>定义state数据</li>
+<li>定义模板</li>
+<li>数据 + 模板 结合，生成真实的DOM，显示在页面上</li>
+<li>当数据state发生变化</li>
+<li>新数据 + 模板 结合，生成新的真实DOM</li>
+<li>对比新旧DOM节点，找出差异</li>
+<li>只用新的DOM替换更新差异的节点</li>
+</ol>
+<blockquote>
+<p>缺点：<br>重复生成新的DOM节点，耗费性能<br>对比真实DOM的性能损耗大</p>
+</blockquote>
+<hr>
+<p>虚拟DOM概念如何实现？？</p>
+<ol>
+<li>定义state数据</li>
+<li>定义模板JSX</li>
+<li>数据 + 模板 结合，生成虚拟的DOM（js对象描述真实的dom）</li>
+<li>利用虚拟DOM结构生成真实的DOM，显示在页面上</li>
+<li>当数据state发生变化</li>
+<li>数据 + 模板 生成新的虚拟DOM (js对象)</li>
+<li>对比新旧虚拟DOM树（js对象对比），找出差异（Diff算法)</li>
+<li>只用新的DOM替换更新差异的节点</li>
+</ol>
+<blockquote>
+<p>优势：<br>js生成对象比js对象生成DOM的性能损耗小<br>对比js对象比真实DOM性能损耗小</p>
+</blockquote>
+<h1 id="Diff算法"><a href="#Diff算法" class="headerlink" title="Diff算法"></a>Diff算法</h1><p>原始虚拟dom和新的虚拟dom（js对象对比）差异对比的算法   </p>
+<p>setState异步操作能把多次setState合并批量更新，减少虚拟dom比对的次数，提高性能。<br>虚拟dom同级比较，不同就废弃，用新的dom取代旧的dom节点。<br>key值引入提高虚拟dom比对性能，key值确保稳定性尽量不要用index索引。  </p>
+<hr>
+<h1 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h1><p>this.state赋值不能直接更新state，必须通过setState()</p>
+<p>setState()是批量异步更新。<br>如果前一个state依赖后一个state，通过第一个函数参数返回对象设置更新state<br>如果要获取最新DOM更新结果，通过在componentDidUpdate或setState第二个回调函数参数执行，保证DOM更新后才触发。        ·</p>
+<h1 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h1><p>react用来直接获取dom元素，尽量使用ref不直接操作dom</p>
+<p>方法：</p>
+<blockquote>
+<ol>
+<li>在construct中利用this.textInput = React.createRef()；节点上绑定ref={this.textInput}；节点值为this.textInput.current.value</li>
+<li>或是节点上绑定箭头函数ref={(input)=&gt;{this.input = input}}；节点值为this.input.value</li>
+</ol>
+</blockquote>
+<p><a href="https://zh-hans.reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">文档</a></p>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>组件在某个时刻自动执行的函数<br>大致分为三个阶段：挂载-更新-卸载<br>父子组件都具有生命周期      </p>
+<p><strong>挂载阶段：</strong> componentWillMount 被 静态方法get­Derived­State­From­Props取代<br><strong>更新阶段：</strong><br>componentWillReceiveProps 被 静态方法 get­Derived­State­From­Props 取代<br>componentWillUpdate 被取消<br>should­Component­Update true执行render后续更新操作，false不执行render之后一系列更新操作<br>新增get­Snapshot­Before­Update 在componentDidUpdate 之前执行<br><strong>卸载阶段：</strong> component­Will­Unmount </p>
+<p>旧版生命周期图<br><img src="/2020/08/11/React%E5%9F%BA%E7%A1%80/7.png" alt="7"></p>
+<p>16.4新版生命周期图<br><img src="/2020/08/11/React%E5%9F%BA%E7%A1%80/3.png" alt="3"><br><img src="/2020/08/11/React%E5%9F%BA%E7%A1%80/4.png" alt="4"><br><img src="/2020/08/11/React%E5%9F%BA%E7%A1%80/5.jpg" alt="5"></p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>componentDidMount里发起AJAX （axios封装ajax方法）<br>getDerivedStateFromProps是一个静态函数，所以函数体内不能访问this，只做运算。在Updating和Mounting过程中都会被调用。<br>getSnapshotBeforeUpdate在render之后componentDidUpdate之前执行，用来获取dom修改ui。一般不用。</p>
 
       
 
@@ -355,7 +413,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装node"><span class="toc-number">1.</span> <span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚手架创建react项目"><span class="toc-number">2.</span> <span class="toc-text">脚手架创建react项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整理工程目录"><span class="toc-number">3.</span> <span class="toc-text">整理工程目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概念理解"><span class="toc-number">4.</span> <span class="toc-text">概念理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">4.1.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX"><span class="toc-number">4.2.</span> <span class="toc-text">JSX</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何构建一个react应用思路"><span class="toc-number">5.</span> <span class="toc-text">如何构建一个react应用思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react优势"><span class="toc-number">6.</span> <span class="toc-text">react优势</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装node"><span class="toc-number">1.</span> <span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚手架创建react项目"><span class="toc-number">2.</span> <span class="toc-text">脚手架创建react项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整理工程目录"><span class="toc-number">3.</span> <span class="toc-text">整理工程目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概念理解"><span class="toc-number">4.</span> <span class="toc-text">概念理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">4.1.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX"><span class="toc-number">4.2.</span> <span class="toc-text">JSX</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何构建一个react应用思路"><span class="toc-number">5.</span> <span class="toc-text">如何构建一个react应用思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react优势"><span class="toc-number">6.</span> <span class="toc-text">react优势</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟DOM"><span class="toc-number">7.</span> <span class="toc-text">虚拟DOM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Diff算法"><span class="toc-number">8.</span> <span class="toc-text">Diff算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#setState"><span class="toc-number">9.</span> <span class="toc-text">setState</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ref"><span class="toc-number">10.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生命周期"><span class="toc-number">11.</span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-number">11.1.</span> <span class="toc-text">使用场景</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
