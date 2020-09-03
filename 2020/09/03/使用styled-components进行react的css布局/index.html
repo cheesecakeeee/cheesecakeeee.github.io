@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://cheesecakeeee.github.io">
-  <title>Archives | 欢迎光临</title>
+  <title>使用styled-components进行react的css布局 | 欢迎光临</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="欢迎光临">
-<meta property="og:url" content="https://cheesecakeeee.github.io/archives/index.html">
+  <meta name="description" content="是什么顾名思义： 带样式的组件一个把组件和 style 联系在一起的一个组件库。即在js中写css，移除了组件和样式的映射关系，使我们不用引入单独的css文件，创建带样式的组件直接导出并使用 安装1yarn add styled-components  设置全局的reset css 百度搜索reset css 获取页面初始样式css 新建一个全局的style.js文件，写入全局的css123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用styled-components进行react的css布局">
+<meta property="og:url" content="https://cheesecakeeee.github.io/2020/09/03/%E4%BD%BF%E7%94%A8styled-components%E8%BF%9B%E8%A1%8Creact%E7%9A%84css%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="欢迎光临">
+<meta property="og:description" content="是什么顾名思义： 带样式的组件一个把组件和 style 联系在一起的一个组件库。即在js中写css，移除了组件和样式的映射关系，使我们不用引入单独的css文件，创建带样式的组件直接导出并使用 安装1yarn add styled-components  设置全局的reset css 百度搜索reset css 获取页面初始样式css 新建一个全局的style.js文件，写入全局的css123456">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-03T10:42:59.000Z">
+<meta property="article:modified_time" content="2020-09-03T10:58:20.344Z">
 <meta property="article:author" content="PRESENT">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="欢迎光临" type="application/atom+xml">
@@ -154,36 +159,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-使用styled-components进行react的css布局" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      使用styled-components进行react的css布局
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/03/%E4%BD%BF%E7%94%A8styled-components%E8%BF%9B%E8%A1%8Creact%E7%9A%84css%E5%B8%83%E5%B1%80/" class="archive-article-date">
+
+        
+        <a href="/2020/09/03/%E4%BD%BF%E7%94%A8styled-components%E8%BF%9B%E8%A1%8Creact%E7%9A%84css%E5%B8%83%E5%B1%80/" class="archive-article-date">
   	<time datetime="2020-09-03T10:42:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/03/%E4%BD%BF%E7%94%A8styled-components%E8%BF%9B%E8%A1%8Creact%E7%9A%84css%E5%B8%83%E5%B1%80/">使用styled-components进行react的css布局</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>顾名思义： 带样式的组件<br>一个把组件和 style 联系在一起的一个组件库。<br>即在js中写css，移除了组件和样式的映射关系，使我们不用引入单独的css文件，创建带样式的组件直接导出并使用</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add styled-components</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="设置全局的reset-css"><a href="#设置全局的reset-css" class="headerlink" title="设置全局的reset css"></a>设置全局的reset css</h1><ol>
+<li>百度搜索<a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener">reset css</a> 获取页面初始样式css</li>
+<li>新建一个全局的style.js文件，写入全局的css<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createGlobalStyle &#125; <span class="keyword">from</span> <span class="string">'styled-components'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> GlobalStyle = createGlobalStyle<span class="string">`</span></span><br><span class="line"><span class="string">    html, body, div, span, applet, object, iframe,</span></span><br><span class="line"><span class="string">    h1, h2, h3, h4, h5, h6, p, blockquote, pre,</span></span><br><span class="line"><span class="string">    a, abbr, acronym, address, big, cite, code,</span></span><br><span class="line"><span class="string">    del, dfn, em, img, ins, kbd, q, s, samp,</span></span><br><span class="line"><span class="string">    small, strike, strong, sub, sup, tt, var,</span></span><br><span class="line"><span class="string">    b, u, i, center,</span></span><br><span class="line"><span class="string">    dl, dt, dd, ol, ul, li,</span></span><br><span class="line"><span class="string">    fieldset, form, label, legend,</span></span><br><span class="line"><span class="string">    table, caption, tbody, tfoot, thead, tr, th, td,</span></span><br><span class="line"><span class="string">    article, aside, canvas, details, embed, </span></span><br><span class="line"><span class="string">    figure, figcaption, footer, header, hgroup, </span></span><br><span class="line"><span class="string">    menu, nav, output, ruby, section, summary,</span></span><br><span class="line"><span class="string">    time, mark, audio, video &#123;</span></span><br><span class="line"><span class="string">        margin: 0;</span></span><br><span class="line"><span class="string">        padding: 0;</span></span><br><span class="line"><span class="string">        border: 0;</span></span><br><span class="line"><span class="string">        font-size: 100%;</span></span><br><span class="line"><span class="string">        font: inherit;</span></span><br><span class="line"><span class="string">        vertical-align: baseline;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    /* HTML5 display-role reset for older browsers */</span></span><br><span class="line"><span class="string">    article, aside, details, figcaption, figure, </span></span><br><span class="line"><span class="string">    footer, header, hgroup, menu, nav, section &#123;</span></span><br><span class="line"><span class="string">        display: block;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    body &#123;</span></span><br><span class="line"><span class="string">        line-height: 1;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    ol, ul &#123;</span></span><br><span class="line"><span class="string">        list-style: none;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    blockquote, q &#123;</span></span><br><span class="line"><span class="string">        quotes: none;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    blockquote:before, blockquote:after,</span></span><br><span class="line"><span class="string">    q:before, q:after &#123;</span></span><br><span class="line"><span class="string">        content: '';</span></span><br><span class="line"><span class="string">        content: none;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    table &#123;</span></span><br><span class="line"><span class="string">        border-collapse: collapse;</span></span><br><span class="line"><span class="string">        border-spacing: 0;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure></li>
+<li>在入口文件中以组件的形式导入并使用该全局样式组件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Fragment &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; GlobalStyle &#125; <span class="keyword">from</span> <span class="string">'./style'</span></span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Fragment&gt;</span><br><span class="line">    &lt;GlobalStyle /&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;<span class="regexp">/Fragment&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById('root')</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="设置局部的组件样式"><a href="#设置局部的组件样式" class="headerlink" title="设置局部的组件样式"></a>设置局部的组件样式</h1><ol>
+<li>创建组件命名的文件夹，创建一个组建的style.js</li>
+<li>style.js通过styled定义带样式的组件并导出<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">'styled-components'</span></span><br><span class="line"><span class="keyword">import</span> LogoImg <span class="keyword">from</span> <span class="string">"../../statics/logo.png"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> HeaderWrapper = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">    height: 56px;</span></span><br><span class="line"><span class="string">    border-bottom: 1px solid #f0f0f0;</span></span><br><span class="line"><span class="string">    position: relative;</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Logo = styled.a<span class="string">`</span></span><br><span class="line"><span class="string">    width: 100px;</span></span><br><span class="line"><span class="string">    height: 100%;</span></span><br><span class="line"><span class="string">    display: block;</span></span><br><span class="line"><span class="string">    background: url(<span class="subst">$&#123;LogoImg&#125;</span>);</span></span><br><span class="line"><span class="string">    background-size: contain;</span></span><br><span class="line"><span class="string">    position: absolute;</span></span><br><span class="line"><span class="string">    top: 0;</span></span><br><span class="line"><span class="string">    left: 0</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure></li>
+<li>引用style.js创建的组件（带样式），构建页面组件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; </span><br><span class="line">    HeaderWrapper,</span><br><span class="line">    Logo</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"./style"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Header</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;HeaderWrapper&gt;</span><br><span class="line">                &lt;Logo href=<span class="string">'/'</span>/&gt;</span><br><span class="line">            &lt;<span class="regexp">/HeaderWrapper&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Header</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,342 +234,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://cheesecakeeee.github.io/2020/09/03/%E4%BD%BF%E7%94%A8styled-components%E8%BF%9B%E8%A1%8Creact%E7%9A%84css%E5%B8%83%E5%B1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/26/%E5%85%B3%E4%BA%8ERedux/" class="archive-article-date">
-  	<time datetime="2020-08-26T04:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/26/%E5%85%B3%E4%BA%8ERedux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于Redux</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/26/%E5%85%B3%E4%BA%8ERedux/">关于Redux</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置全局的reset-css"><span class="toc-number">3.</span> <span class="toc-text">设置全局的reset css</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置局部的组件样式"><span class="toc-number">4.</span> <span class="toc-text">设置局部的组件样式</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/19/vue%E5%92%8Creact%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-08-19T04:13:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/19/vue%E5%92%8Creact%E5%8C%BA%E5%88%AB/">vue和react区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/12/ES%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-08-12T02:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/12/ES%E5%9F%BA%E7%A1%80/">ES6基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/11/React%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-08-11T09:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/11/React%E5%9F%BA%E7%A1%80/">React基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/01/%E7%AC%AC%E4%B8%89%E6%96%B9JS%E5%BA%93%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-08-01T12:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/01/%E7%AC%AC%E4%B8%89%E6%96%B9JS%E5%BA%93%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85/">9.第三方JS库封装成组件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2020-07-30T02:24:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/30/mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/">8.mock模拟数据</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/28/axios%E5%B0%81%E8%A3%85ajax%E8%AF%B7%E6%B1%82/" class="archive-article-date">
-  	<time datetime="2020-07-28T03:31:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/axios%E5%B0%81%E8%A3%85ajax%E8%AF%B7%E6%B1%82/">7.axios封装ajax请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-07-27T04:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/Vuex%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">6.Vuex数据管理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" class="archive-article-date">
-  	<time datetime="2020-07-10T03:28:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/10/vue%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/">5.vue中数据交互</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -554,8 +369,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

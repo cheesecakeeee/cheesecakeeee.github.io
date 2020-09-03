@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://cheesecakeeee.github.io">
   <title>关于Redux | 欢迎光临</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="是什么数据层框架 。将 数据 抽离到公共的store中，避免了复杂的数据传递。配合 react这个 视图层框架 构建大型项目。action执行同步操作。  类似vue的vuex">
+  <meta name="description" content="是什么数据层框架 。将 数据 抽离到公共的store中，避免了复杂的数据传递。配合 react这个 视图层框架 构建大型项目。action执行同步操作。  类似vue的vuex mobx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Redux">
 <meta property="og:url" content="https://cheesecakeeee.github.io/2020/08/26/%E5%85%B3%E4%BA%8ERedux/index.html">
 <meta property="og:site_name" content="欢迎光临">
-<meta property="og:description" content="是什么数据层框架 。将 数据 抽离到公共的store中，避免了复杂的数据传递。配合 react这个 视图层框架 构建大型项目。action执行同步操作。  类似vue的vuex">
+<meta property="og:description" content="是什么数据层框架 。将 数据 抽离到公共的store中，避免了复杂的数据传递。配合 react这个 视图层框架 构建大型项目。action执行同步操作。  类似vue的vuex mobx">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/26/%E5%85%B3%E4%BA%8ERedux/8.png">
 <meta property="og:image" content="https://cheesecakeeee.github.io/2020/08/26/%E5%85%B3%E4%BA%8ERedux/1.png">
 <meta property="article:published_time" content="2020-08-26T04:14:36.000Z">
-<meta property="article:modified_time" content="2020-08-31T10:21:30.664Z">
+<meta property="article:modified_time" content="2020-09-02T06:56:11.664Z">
 <meta property="article:author" content="PRESENT">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
       
         <h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>数据层框架 。<br>将 数据 抽离到公共的store中，避免了复杂的数据传递。<br>配合 react这个 视图层框架 构建大型项目。<br>action执行同步操作。</p>
 <blockquote>
-<p>类似vue的vuex</p>
+<p>类似vue的vuex mobx</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h1><p>类比学生向图书管理员借书流程<br>学生（即react component）向图书管理员（store）提出借书的请求（即action），图书管理员（store）参考图书管理手册（reducer）查找图书，销毁图书，新增图书。图书管理员获取图书(state)给学生。</p>
@@ -220,8 +220,11 @@
 <p>类比vuex的action用来处理异步操作      </p>
 </blockquote>
 <p><img src="/2020/08/26/%E5%85%B3%E4%BA%8ERedux/1.png" alt="1"></p>
-<h2 id="配置中间及redux调试工具"><a href="#配置中间及redux调试工具" class="headerlink" title="配置中间及redux调试工具"></a>配置中间及redux调试工具</h2><p><a href="https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup" target="_blank" rel="noopener">配置中间及redux调试工具</a></p>
-<h1 id="redux-saga中间件"><a href="#redux-saga中间件" class="headerlink" title="redux-saga中间件"></a>redux-saga中间件</h1>
+<h2 id="配置中间件及redux调试工具"><a href="#配置中间件及redux调试工具" class="headerlink" title="配置中间件及redux调试工具"></a>配置中间件及redux调试工具</h2><p><a href="https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup" target="_blank" rel="noopener">配置中间及redux调试工具</a></p>
+<h1 id="redux-saga中间件"><a href="#redux-saga中间件" class="headerlink" title="redux-saga中间件"></a>redux-saga中间件</h1><p>和 redux-thunk类似，都是扩展redux<br>不同于redux-thunk 将异步操作写入action中，redux-sage创建单独的文件管理异步操作。</p>
+<p><a href="https://github.com/redux-saga/redux-saga#mainjs" target="_blank" rel="noopener">安装和使用redux-sage</a></p>
+<h1 id="react-redux-模块"><a href="#react-redux-模块" class="headerlink" title="react-redux 模块"></a>react-redux 模块</h1><p>Provider 组件 使 所有组件共享store<br>connect() 方法把 组件和store连接<br>mapStateToProps 方法 将state中的数据传递给组件的props上。通过this.props访问store中的数据<br>mapDispatchToProps 方法 将组件方法定义到组件的props上。通过this.props访问组件方法，方法内部定义action触发redux的reducer修改state</p>
+
       
 
       
@@ -325,6 +328,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/09/03/%E4%BD%BF%E7%94%A8styled-components%E8%BF%9B%E8%A1%8Creact%E7%9A%84css%E5%B8%83%E5%B1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用styled-components进行react的css布局
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/08/19/vue%E5%92%8Creact%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">vue和react区别</div>
@@ -354,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图解"><span class="toc-number">2.</span> <span class="toc-text">图解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计原则"><span class="toc-number">3.</span> <span class="toc-text">设计原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装调试工具"><span class="toc-number">4.</span> <span class="toc-text">安装调试工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法："><span class="toc-number">5.</span> <span class="toc-text">基本用法：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux-thunk中间件"><span class="toc-number">6.</span> <span class="toc-text">redux-thunk中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置中间及redux调试工具"><span class="toc-number">6.1.</span> <span class="toc-text">配置中间及redux调试工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux-saga中间件"><span class="toc-number">7.</span> <span class="toc-text">redux-saga中间件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图解"><span class="toc-number">2.</span> <span class="toc-text">图解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计原则"><span class="toc-number">3.</span> <span class="toc-text">设计原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装调试工具"><span class="toc-number">4.</span> <span class="toc-text">安装调试工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法："><span class="toc-number">5.</span> <span class="toc-text">基本用法：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux-thunk中间件"><span class="toc-number">6.</span> <span class="toc-text">redux-thunk中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置中间件及redux调试工具"><span class="toc-number">6.1.</span> <span class="toc-text">配置中间件及redux调试工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#redux-saga中间件"><span class="toc-number">7.</span> <span class="toc-text">redux-saga中间件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-redux-模块"><span class="toc-number">8.</span> <span class="toc-text">react-redux 模块</span></a></li></ol>
                     </div>
                 </span>
             </div>
